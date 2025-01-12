@@ -78,11 +78,15 @@
             color: #000000; /* Warna teks */
         }
 
-        .qr-text3 {
-            color: #00d9ff; /* Warna teks khusus untuk qr-text3 */
-            font-size: 30px;
-            margin-top: 100px;
-        }
+        /* Font size for the email text, relative to the phone screen size */
+.qr-text3 {
+    font-size: 6vw; /* Adjust size based on viewport width */
+    color: #00d9ff; /* Optional: color for visual emphasis */
+    font-weight: bold; /* Optional: bold font weight */
+    margin-bottom: 10px; /* Space below the text */
+    margin-top: 100px;
+}
+
 
         /* Animasi bawah ke atas */
         @keyframes slideUp {

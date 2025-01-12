@@ -102,6 +102,36 @@
                 font-size: 30px;
             }
         }
+
+        /* Responsif untuk peranti mudah alih */
+        @media (max-width: 768px) {
+            /* Semua gambar di tengah */
+            .row {
+                display: flex;
+                justify-content: space-between; /* Gambar kiri, tengah, kanan */
+                gap: 10px; /* Jarak lebih kecil antara gambar */
+                width: 100%; /* Pastikan row menggunakan lebar penuh */
+            }
+
+            /* Ukuran gambar untuk peranti mudah alih */
+            .row img {
+                width: 30%; /* Menggunakan 30% lebar untuk setiap gambar */
+                margin-bottom: 30px; /* Memberikan ruang bawah untuk gambar */
+            }
+
+            /* Menyesuaikan gambar Screenshot6 */
+            img[src="Screenshot6.png"] {
+                width: 50%; /* Gambar lebih kecil */
+                margin-top: 50px; /* Sesuaikan jarak margin */
+            }
+
+            /* Mengurangkan saiz fon pada peranti mudah alih */
+            .qr-text, .qr-text2 {
+                font-size: 30px; /* Mengurangkan saiz fon */
+                margin-bottom: -10px; /* Mengurangkan jarak antara teks */
+            }
+
+        }
     </style>
 </head>
 <body>

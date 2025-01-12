@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutiara Parking</title>
+    <style>
+        /* Gaya umum untuk semua gambar */
+        img {
+            max-width: 9000px;  /* Menghadkan lebar maksimum */
+            height: auto;  /* Menjaga nisbah aspek */
+            image-rendering: crisp-edges;  /* Menjaga ketajaman imej */
+            transition: transform 0.3s ease; /* Peralihan lembut untuk perbesaran */
+        }
+
+        /* Besarkan gambar apabila hover, kecuali Screenshot2.jpg dan Screenshot6.png */
+        img:hover {
+            transform: scale(1.4); /* Besarkan gambar sebanyak 10% */
+        }
+
+        /* Hilangkan hover effect untuk Screenshot2.png */
+        img[src="Screenshot2.jpg"]:hover {
+            transform: none;
+        }
+
+        /* Hilangkan hover effect untuk Screenshot6.png */
+        img[src="Screenshot6.png"]:hover {
+            transform: none;
+        }
+
+        /* Kontainer untuk Screenshot3, Screenshot4, Screenshot5 */
+        .row {
+            display: flex;
+            justify-content: center; /* Semua gambar ke tengah */
+            align-items: center;
+            margin: 20px 0; /* Ruang antar baris */
+            gap: 20px; /* Jarak seragam antara gambar */
+        }
+
+        /* Ukuran lebih kecil untuk Screenshot3, Screenshot4, Screenshot5 */
+        .row img {
+            width: 300px; /* Lebar gambar */
+        }
+
+        /* Gaya khusus untuk Screenshot6.png */
+        img[src="Screenshot6.png"] {
+            display: block; /* Pastikan gambar menjadi elemen blok */
+            margin: 20px auto; /* Letak gambar di tengah bawah dengan margin */
+            width: 700px; /* Sesuaikan ukuran */
+            margin-top: 200px;
+        }
+
+        /* Animasi besar kecil */
+        @keyframes zoom {
+            0% {
+                transform: scale(1); /* Saiz asal */
+            }
+            50% {
+                transform: scale(1.2); /* Zoom in */
+            }
+            100% {
+                transform: scale(1); /* Kembali ke asal */
+            }
+        }
+
+        /* Terapkan animasi besar kecil ke Screenshot2.png */
+        img[src="Screenshot2.jpg"] {
+            animation: zoom 2s infinite; /* Durasi 2 detik, ulang tak terbatas */
+        }
+
+        /* Gaya teks untuk Screenshot6.png */
+        .qr-text {
+            text-align: center; /* Teks di tengah */
+            font-size: 80px; /* Saiz fon */
+            font-weight: bold; /* Huruf tebal */
+            margin-bottom:-90px; /* Mengurangkan jarak antara ayat */
+            color: #000000; /* Warna teks */
+        }
+
+        .qr-text2 {
+            text-align: center; /* Teks di tengah */
+            font-size: 80px; /* Saiz fon */
+            font-weight: bold; /* Huruf tebal */
+            margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
+            color: #000000; /* Warna teks */
+            
+        }
+
+        .qr-text3 {
+            text-align: center; /* Teks di tengah */
+            font-size: 80px; /* Saiz fon */
+            font-weight: bold; /* Huruf tebal */
+            margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
+            color: #00d9ff; /* Warna teks */
+            
+        }
+
+        /* Animasi bawah ke atas */
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px); /* Bermula di bawah */
+        opacity: 0; /* Teks bermula tidak kelihatan */
+    }
+    100% {
+        transform: translateY(0); /* Bergerak ke kedudukan asal */
+        opacity: 1; /* Teks kelihatan sepenuhnya */
+    }
+}
+
+/* Terapkan animasi pada qr-text dan qr-text2 untuk animasi berulang */
+.qr-text, .qr-text2 {
+    animation: slideUp 3s ease-out infinite; /* Durasi 1 saat, easing effect, berulang tanpa henti */
+}
+
+    </style>
+</head>
+<body>
+    <h1></h1>
+
+    <!-- Gambar Screenshot2.png di atas baris -->
+    <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel" style="display: block; margin: 20px auto; width: 800px;">
+
+    <!-- Baris gambar (Screenshot3.png, Screenshot4.png, Screenshot5.png) -->
+    <div class="row">
+        <img src="Screenshot3.png" alt="QR Code untuk Compose E-mel">
+        <img src="Screenshot4.png" alt="QR Code untuk Compose E-mel">
+        <img src="Screenshot5.png" alt="QR Code untuk Compose E-mel">
+    </div>
+
+    <!-- Teks di atas gambar Screenshot6.png -->
+    <p class="qr-text">If You're Interested ,</p>
+    <p class="qr-text2">You May Email</p>
+    <p class="qr-text3">mutiaraparking@gmail.com.my</p>
+
+    <!-- Gambar khas Screenshot6.png -->
+    <img src="Screenshot6.png" alt="QR Code untuk Compose E-mel">
+
+</body>
+</html>

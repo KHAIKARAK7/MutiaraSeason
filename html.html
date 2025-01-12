@@ -78,13 +78,24 @@
             color: #000000; /* Warna teks */
         }
 
-        /* Font size for the email text, relative to the phone screen size */
+
+
+/* Font size for the email text, responsive to screen size */
 .qr-text3 {
-    font-size: 6vw; /* Adjust size based on viewport width */
-    color: #00d9ff; /* Optional: color for visual emphasis */
+    font-size: 6vw; /* Font size adjusts based on the viewport width */
+    color: #00d9ff; /* Optional: color for emphasis */
     font-weight: bold; /* Optional: bold font weight */
     margin-bottom: 10px; /* Space below the text */
+    max-font-size: 24px; /* Limit the maximum size on larger screens */
+    min-font-size: 14px; /* Ensure font doesn't get too small */
     margin-top: 100px;
+}
+
+/* Add responsive adjustments for smaller screens (like mobile phones) */
+@media (max-width: 768px) {
+    .qr-text3 {
+        font-size: 8vw; /* Increase font size on smaller screens */
+    }
 }
 
 

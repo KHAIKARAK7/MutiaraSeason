@@ -11,6 +11,8 @@
             height: auto;  /* Menjaga nisbah aspek */
             image-rendering: crisp-edges;  /* Menjaga ketajaman imej */
             transition: transform 0.3s ease; /* Peralihan lembut untuk perbesaran */
+            display: block; /* Pastikan gambar menjadi elemen blok */
+            margin: 20px auto; /* Letak gambar di tengah */
         }
 
         /* Besarkan gambar apabila hover, kecuali Screenshot2.jpg dan Screenshot6.png */
@@ -45,8 +47,6 @@
 
         /* Gaya khusus untuk Screenshot6.png */
         img[src="Screenshot6.png"] {
-            display: block; /* Pastikan gambar menjadi elemen blok */
-            margin: 20px auto; /* Letak gambar di tengah bawah dengan margin */
             width: 700px; /* Sesuaikan ukuran */
             margin-top: 200px;
         }
@@ -113,28 +113,30 @@
 
         /* Responsif untuk peranti mudah alih */
         @media (max-width: 768px) {
+            /* Semua gambar di tengah */
             .row img {
-                width: 100%; /* Menyesuaikan gambar dengan lebar skrin */
+                width: 90%; /* Gambar lebih kecil pada peranti mudah alih */
             }
 
+            /* Menyesuaikan gambar Screenshot6 */
             img[src="Screenshot6.png"] {
-                width: 100%; /* Sesuaikan gambar dengan lebar skrin */
+                width: 90%; /* Gambar lebih kecil */
                 margin-top: 50px; /* Sesuaikan jarak margin */
             }
 
+            /* Mengurangkan saiz fon pada peranti mudah alih */
             .qr-text, .qr-text2, .qr-text3 {
-                font-size: 50px; /* Mengurangkan saiz fon pada peranti kecil */
+                font-size: 50px; /* Mengurangkan saiz fon */
                 margin-bottom: -50px; /* Mengurangkan jarak antara teks */
             }
         }
-
     </style>
 </head>
 <body>
     <h1></h1>
 
     <!-- Gambar Screenshot2.png di atas baris -->
-    <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel" style="display: block; margin: 20px auto; width: 800px;">
+    <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel" style="width: 800px;">
 
     <!-- Baris gambar (Screenshot3.png, Screenshot4.png, Screenshot5.png) -->
     <div class="row">

@@ -9,15 +9,14 @@
         img {
             max-width: 100%;  /* Pastikan gambar tidak melebihi lebar skrin */
             height: auto;  /* Menjaga nisbah aspek */
-            image-rendering: crisp-edges;  /* Menjaga ketajaman imej */
-            transition: transform 0.3s ease; /* Peralihan lembut untuk perbesaran */
+            image-rendering: auto;  /* Menjaga imej untuk paparan lancar */
             display: block; /* Pastikan gambar menjadi elemen blok */
             margin: 20px auto; /* Letak gambar di tengah */
         }
 
         /* Besarkan gambar apabila hover, kecuali Screenshot2.jpg dan Screenshot6.png */
         img:hover {
-            transform: scale(1.4); /* Besarkan gambar sebanyak 10% */
+            transform: scale(1.3); /* Kecilkan perbesaran untuk mengurangkan lag */
         }
 
         /* Hilangkan hover effect untuk Screenshot2.png */
@@ -36,19 +35,20 @@
             justify-content: space-between; /* Gambar ke kiri, tengah, dan kanan */
             align-items: center;
             margin: 20px 0; /* Ruang antar baris */
-            gap: 20px; /* Jarak seragam antara gambar */
+            gap: 10px; /* Jarak lebih kecil antara gambar */
             flex-wrap: wrap; /* Membenarkan pembungkusan baris gambar */
         }
 
         /* Ukuran lebih kecil untuk Screenshot3, Screenshot4, Screenshot5 */
         .row img {
-            width: 300px; /* Lebar gambar */
+            width: 25%; /* Menggunakan 30% lebar untuk setiap gambar */
+            margin-bottom: 10px; /* Memberikan ruang bawah untuk gambar */
         }
 
         /* Gaya khusus untuk Screenshot6.png */
         img[src="Screenshot6.png"] {
-            width: 700px; /* Sesuaikan ukuran */
-            margin-top: 200px;
+            width: 30%; /* Sesuaikan ukuran gambar */
+            margin-top: 80px;
         }
 
         /* Animasi besar kecil */
@@ -57,7 +57,7 @@
                 transform: scale(1); /* Saiz asal */
             }
             50% {
-                transform: scale(1.2); /* Zoom in */
+                transform: scale(1.05); /* Kurangkan zoom untuk elakkan lag */
             }
             100% {
                 transform: scale(1); /* Kembali ke asal */
@@ -66,32 +66,20 @@
 
         /* Terapkan animasi besar kecil ke Screenshot2.png */
         img[src="Screenshot2.jpg"] {
-            animation: zoom 2s infinite; /* Durasi 2 detik, ulang tak terbatas */
+            animation: zoom 3s infinite; /* Durasi 3 detik, ulang tak terbatas */
         }
 
         /* Gaya teks untuk Screenshot6.png */
-        .qr-text {
+        .qr-text, .qr-text2, .qr-text3 {
             text-align: center; /* Teks di tengah */
-            font-size: 80px; /* Saiz fon */
+            font-size: 60px; /* Mengurangkan saiz fon untuk prestasi lebih baik */
             font-weight: bold; /* Huruf tebal */
-            margin-bottom:-90px; /* Mengurangkan jarak antara ayat */
-            color: #000000; /* Warna teks */
-        }
-
-        .qr-text2 {
-            text-align: center; /* Teks di tengah */
-            font-size: 80px; /* Saiz fon */
-            font-weight: bold; /* Huruf tebal */
-            margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
+            margin-bottom: -60px; /* Mengurangkan jarak antara ayat */
             color: #000000; /* Warna teks */
         }
 
         .qr-text3 {
-            text-align: center; /* Teks di tengah */
-            font-size: 80px; /* Saiz fon */
-            font-weight: bold; /* Huruf tebal */
-            margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
-            color: #00d9ff; /* Warna teks */
+            color: #00d9ff; /* Warna teks khusus untuk qr-text3 */
         }
 
         /* Animasi bawah ke atas */
@@ -108,7 +96,7 @@
 
         /* Terapkan animasi pada qr-text dan qr-text2 untuk animasi berulang */
         .qr-text, .qr-text2 {
-            animation: slideUp 3s ease-out infinite; /* Durasi 1 saat, easing effect, berulang tanpa henti */
+            animation: slideUp 3s ease-out infinite; /* Durasi 3 saat, easing effect, berulang tanpa henti */
         }
 
         /* Responsif untuk peranti mudah alih */
@@ -129,7 +117,7 @@
 
             /* Menyesuaikan gambar Screenshot6 */
             img[src="Screenshot6.png"] {
-                width: 90%; /* Gambar lebih kecil */
+                width: 50%; /* Gambar lebih kecil */
                 margin-top: 50px; /* Sesuaikan jarak margin */
             }
 
@@ -138,14 +126,27 @@
                 font-size: 50px; /* Mengurangkan saiz fon */
                 margin-bottom: -50px; /* Mengurangkan jarak antara teks */
             }
+
+            /* Mematikan animasi pada peranti mudah alih untuk prestasi lebih baik */
+            .qr-text, .qr-text2, .qr-text3 {
+                animation: none; /* Matikan animasi pada peranti mudah alih */
+            }
+
+            img[src="Screenshot2.jpg"] {
+                animation: none; /* Matikan animasi pada gambar untuk peranti mudah alih */
+            }
         }
     </style>
 </head>
 <body>
     <h1></h1>
 
-    <!-- Gambar Screenshot2.png di atas baris -->
-    <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel" style="width: 800px;">
+    <!-- Gambar Screenshot2.png di tengah -->
+    <div style="text-align: center;">
+        <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel">
+    </div>
+
+    
 
     <!-- Baris gambar (Screenshot3.png, Screenshot4.png, Screenshot5.png) -->
     <div class="row">
@@ -154,13 +155,17 @@
         <img src="Screenshot5.png" alt="QR Code untuk Compose E-mel">
     </div>
 
-    <!-- Teks di atas gambar Screenshot6.png -->
+<!-- Teks di atas gambar Screenshot2.png -->
+<div style="text-align: center;">
     <p class="qr-text">If You're Interested ,</p>
     <p class="qr-text2">You May Email</p>
     <p class="qr-text3">mutiaraparking@gmail.com.my</p>
+</div>
 
-    <!-- Gambar khas Screenshot6.png -->
-    <img src="Screenshot6.png" alt="QR Code untuk Compose E-mel">
+    <!-- Gambar Screenshot6.png di tengah -->
+    <div style="text-align: center;">
+        <img src="Screenshot6.png" alt="QR Code untuk Compose E-mel">
+    </div>
 
 </body>
 </html>

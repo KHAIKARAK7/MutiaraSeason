@@ -33,7 +33,7 @@
         /* Kontainer untuk Screenshot3, Screenshot4, Screenshot5 */
         .row {
             display: flex;
-            justify-content: center; /* Semua gambar ke tengah */
+            justify-content: space-between; /* Gambar ke kiri, tengah, dan kanan */
             align-items: center;
             margin: 20px 0; /* Ruang antar baris */
             gap: 20px; /* Jarak seragam antara gambar */
@@ -114,8 +114,17 @@
         /* Responsif untuk peranti mudah alih */
         @media (max-width: 768px) {
             /* Semua gambar di tengah */
+            .row {
+                display: flex;
+                justify-content: space-between; /* Gambar kiri, tengah, kanan */
+                gap: 10px; /* Jarak lebih kecil antara gambar */
+                width: 100%; /* Pastikan row menggunakan lebar penuh */
+            }
+
+            /* Ukuran gambar untuk peranti mudah alih */
             .row img {
-                width: 90%; /* Gambar lebih kecil pada peranti mudah alih */
+                width: 30%; /* Menggunakan 30% lebar untuk setiap gambar */
+                margin-bottom: 10px; /* Memberikan ruang bawah untuk gambar */
             }
 
             /* Menyesuaikan gambar Screenshot6 */

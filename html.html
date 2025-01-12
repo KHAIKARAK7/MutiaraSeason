@@ -7,7 +7,7 @@
     <style>
         /* Gaya umum untuk semua gambar */
         img {
-            max-width: 9000px;  /* Menghadkan lebar maksimum */
+            max-width: 100%;  /* Pastikan gambar tidak melebihi lebar skrin */
             height: auto;  /* Menjaga nisbah aspek */
             image-rendering: crisp-edges;  /* Menjaga ketajaman imej */
             transition: transform 0.3s ease; /* Peralihan lembut untuk perbesaran */
@@ -35,6 +35,7 @@
             align-items: center;
             margin: 20px 0; /* Ruang antar baris */
             gap: 20px; /* Jarak seragam antara gambar */
+            flex-wrap: wrap; /* Membenarkan pembungkusan baris gambar */
         }
 
         /* Ukuran lebih kecil untuk Screenshot3, Screenshot4, Screenshot5 */
@@ -83,7 +84,6 @@
             font-weight: bold; /* Huruf tebal */
             margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
             color: #000000; /* Warna teks */
-            
         }
 
         .qr-text3 {
@@ -92,25 +92,41 @@
             font-weight: bold; /* Huruf tebal */
             margin-bottom: -90px; /* Mengurangkan jarak antara ayat */
             color: #00d9ff; /* Warna teks */
-            
         }
 
         /* Animasi bawah ke atas */
-@keyframes slideUp {
-    0% {
-        transform: translateY(50px); /* Bermula di bawah */
-        opacity: 0; /* Teks bermula tidak kelihatan */
-    }
-    100% {
-        transform: translateY(0); /* Bergerak ke kedudukan asal */
-        opacity: 1; /* Teks kelihatan sepenuhnya */
-    }
-}
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px); /* Bermula di bawah */
+                opacity: 0; /* Teks bermula tidak kelihatan */
+            }
+            100% {
+                transform: translateY(0); /* Bergerak ke kedudukan asal */
+                opacity: 1; /* Teks kelihatan sepenuhnya */
+            }
+        }
 
-/* Terapkan animasi pada qr-text dan qr-text2 untuk animasi berulang */
-.qr-text, .qr-text2 {
-    animation: slideUp 3s ease-out infinite; /* Durasi 1 saat, easing effect, berulang tanpa henti */
-}
+        /* Terapkan animasi pada qr-text dan qr-text2 untuk animasi berulang */
+        .qr-text, .qr-text2 {
+            animation: slideUp 3s ease-out infinite; /* Durasi 1 saat, easing effect, berulang tanpa henti */
+        }
+
+        /* Responsif untuk peranti mudah alih */
+        @media (max-width: 768px) {
+            .row img {
+                width: 100%; /* Menyesuaikan gambar dengan lebar skrin */
+            }
+
+            img[src="Screenshot6.png"] {
+                width: 100%; /* Sesuaikan gambar dengan lebar skrin */
+                margin-top: 50px; /* Sesuaikan jarak margin */
+            }
+
+            .qr-text, .qr-text2, .qr-text3 {
+                font-size: 50px; /* Mengurangkan saiz fon pada peranti kecil */
+                margin-bottom: -50px; /* Mengurangkan jarak antara teks */
+            }
+        }
 
     </style>
 </head>

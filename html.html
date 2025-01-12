@@ -70,7 +70,7 @@
         }
 
         /* Gaya teks untuk Screenshot6.png */
-        .qr-text, .qr-text2, .qr-text3 {
+        .qr-text, .qr-text2 {
             text-align: center; /* Teks di tengah */
             font-size: 60px; /* Mengurangkan saiz fon untuk prestasi lebih baik */
             font-weight: bold; /* Huruf tebal */
@@ -94,7 +94,7 @@
 /* Add responsive adjustments for smaller screens (like mobile phones) */
 @media (max-width: 700px) {
     .qr-text3 {
-        font-size: -200px; /* Increase font size on smaller screens */
+        font-size: 2px; /* Increase font size on smaller screens */
     }
 }
 
@@ -139,18 +139,14 @@
             }
 
             /* Mengurangkan saiz fon pada peranti mudah alih */
-            .qr-text, .qr-text2, .qr-text3 {
+            .qr-text, .qr-text2 {
                 font-size: 50px; /* Mengurangkan saiz fon */
                 margin-bottom: -50px; /* Mengurangkan jarak antara teks */
             }
 
             /* Mematikan animasi pada peranti mudah alih untuk prestasi lebih baik */
-            .qr-text, .qr-text2, .qr-text3 {
+            .qr-text, .qr-text2 {
                 animation: none; /* Matikan animasi pada peranti mudah alih */
-            }
-
-            img[src="Screenshot2.jpg"] {
-                animation: none; /* Matikan animasi pada gambar untuk peranti mudah alih */
             }
         }
 

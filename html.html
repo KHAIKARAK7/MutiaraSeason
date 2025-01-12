@@ -5,214 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mutiara Parking</title>
     <style>
-        /* Gaya umum untuk semua gambar */
+        /* General styles for images */
         img {
-            max-width: 100%;  /* Pastikan gambar tidak melebihi lebar skrin */
-            height: auto;  /* Menjaga nisbah aspek */
-            image-rendering: auto;  /* Menjaga imej untuk paparan lancar */
-            display: block; /* Pastikan gambar menjadi elemen blok */
-            margin: 20px auto; /* Letak gambar di tengah */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
         }
 
-        /* Besarkan gambar apabila hover, kecuali Screenshot2.jpg dan Screenshot6.png */
+        /* Hover effect for all images except specific ones */
         img:hover {
-            transform: scale(1.3); /* Kecilkan perbesaran untuk mengurangkan lag */
+            transform: scale(1.2);
         }
 
-        /* Hilangkan hover effect untuk Screenshot2.png */
-        img[src="Screenshot2.jpg"]:hover {
-            transform: none;
-        }
-
-        /* Hilangkan hover effect untuk Screenshot6.png */
+        /* Exclude specific images from hover effect */
+        img[src="Screenshot2.jpg"]:hover,
         img[src="Screenshot6.png"]:hover {
             transform: none;
         }
 
-        /* Kontainer untuk Screenshot3, Screenshot4, Screenshot5 */
+        /* Container for row images */
         .row {
             display: flex;
-            justify-content: space-between; /* Gambar ke kiri, tengah, dan kanan */
-            align-items: center;
-            margin: 20px 0; /* Ruang antar baris */
-            gap: 10px; /* Jarak lebih kecil antara gambar */
-            flex-wrap: wrap; /* Membenarkan pembungkusan baris gambar */
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
         }
 
-        /* Ukuran lebih kecil untuk Screenshot3, Screenshot4, Screenshot5 */
+        /* Smaller images in rows */
         .row img {
-            width: 25%; /* Menggunakan 30% lebar untuk setiap gambar */
-            margin-bottom: 10px; /* Memberikan ruang bawah untuk gambar */
+            width: 30%;
         }
 
-        /* Gaya khusus untuk Screenshot6.png */
+        /* Specific style for Screenshot6.png */
         img[src="Screenshot6.png"] {
-            width: 30%; /* Sesuaikan ukuran gambar */
+            width: 30%;
             margin-top: 80px;
         }
 
-        /* Animasi besar kecil */
+        /* Animation for Screenshot2.jpg */
         @keyframes zoom {
-            0% {
-                transform: scale(1); /* Saiz asal */
-            }
-            50% {
-                transform: scale(1.05); /* Kurangkan zoom untuk elakkan lag */
-            }
-            100% {
-                transform: scale(1); /* Kembali ke asal */
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        /* Terapkan animasi besar kecil ke Screenshot2.png */
         img[src="Screenshot2.jpg"] {
-            animation: zoom 3s infinite; /* Durasi 3 detik, ulang tak terbatas */
+            animation: zoom 3s infinite;
         }
 
-        /* Gaya teks untuk Screenshot6.png */
+        /* Text styles */
         .qr-text, .qr-text2 {
-            text-align: center; /* Teks di tengah */
-            font-size: 60px; /* Mengurangkan saiz fon untuk prestasi lebih baik */
-            font-weight: bold; /* Huruf tebal */
-            margin-bottom: -60px; /* Mengurangkan jarak antara ayat */
-            color: #000000; /* Warna teks */
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: -20px;
+            color: #000;
+            animation: slideUp 1s ease-out;
         }
 
+        .qr-text3 {
+            font-size: clamp(14px, 5vw, 60px);
+            font-weight: bold;
+            margin-top: 20px;
+            background: linear-gradient(90deg, #050b8d, #08e617);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
 
-
-/* Font size for the email text, responsive to screen size */
-.qr-text3 {
-    font-size: clamp(14px, 5vw, 60px); /* Font size adapts to viewport */
-    font-weight: bold; /* Bold font for emphasis */
-    margin-top: 100px; /* Space above the text */
-    margin-bottom: 10px; /* Space below the text */
-    background: linear-gradient(90deg, #050b8d, #08e617); /* Dark gradient variation */
-    -webkit-background-clip: text; /* Clip background to text */
-    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
-    text-align: center; /* Center-align the text */
-}
-
-
-/* Add responsive adjustments for smaller screens (like mobile phones) */
-@media (max-width: 700px) {
-    .qr-text3 {
-        font-size: 19px; /* Increase font size on smaller screens */
-    }
-}
-
-
-        /* Animasi bawah ke atas */
+        /* Slide up animation */
         @keyframes slideUp {
-            0% {
-                transform: translateY(50px); /* Bermula di bawah */
-                opacity: 0; /* Teks bermula tidak kelihatan */
+            from {
+                transform: translateY(50px);
+                opacity: 0;
             }
-            100% {
-                transform: translateY(0); /* Bergerak ke kedudukan asal */
-                opacity: 1; /* Teks kelihatan sepenuhnya */
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        /* Terapkan animasi pada qr-text dan qr-text2 untuk animasi berulang */
-        .qr-text, .qr-text2 {
-            animation: slideUp 3s ease-out infinite; /* Durasi 3 saat, easing effect, berulang tanpa henti */
-        }
-
-        /* Responsif untuk peranti mudah alih */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            /* Semua gambar di tengah */
-            .row {
-                display: flex;
-                justify-content: space-between; /* Gambar kiri, tengah, kanan */
-                gap: 10px; /* Jarak lebih kecil antara gambar */
-                width: 100%; /* Pastikan row menggunakan lebar penuh */
-            }
-
-            /* Ukuran gambar untuk peranti mudah alih */
             .row img {
-                width: 30%; /* Menggunakan 30% lebar untuk setiap gambar */
-                margin-bottom: 30px; /* Memberikan ruang bawah untuk gambar */
+                width: 45%;
             }
 
-            /* Menyesuaikan gambar Screenshot6 */
             img[src="Screenshot6.png"] {
-                width: 50%; /* Gambar lebih kecil */
-                margin-top: 50px; /* Sesuaikan jarak margin */
+                width: 50%;
+                margin-top: 50px;
             }
 
-            /* Mengurangkan saiz fon pada peranti mudah alih */
             .qr-text, .qr-text2 {
-                font-size: 30px; /* Mengurangkan saiz fon */
-                margin-bottom: -10px; /* Mengurangkan jarak antara teks */
+                font-size: 30px;
             }
-
         }
-
-        /* Container for the phone-like wrapper */
-.phone-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Style the "phone" container */
-.phone {
-    background-color: #fff;
-    border-radius: 30px;
-    border: 10px solid #000;
-    width: 300px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Optional: Style the text inside the phone */
-.phone p {
-    margin: 10px 0;
-}
-
-/* Responsif untuk peranti kecil */
-@media (max-width: 768px) {
-    .phone {
-        width: 200px; /* Lebih kecil untuk peranti kecil */
-        padding: 10px;
-    }
-
-    img[src="Screenshot2.jpg"] {
-        width: 85%; /* Sesuaikan gambar untuk peranti kecil */
-    }
-}
-
     </style>
 </head>
 <body>
-    <h1></h1>
-
-    <!-- Gambar Screenshot2.png di tengah -->
+    <!-- Screenshot2.jpg with animation -->
     <div style="text-align: center;">
-        <img src="Screenshot2.jpg" alt="QR Code untuk Compose E-mel">
+        <img src="Screenshot2.jpg" alt="QR Code for Email">
     </div>
 
-    
-
-    <!-- Baris gambar (Screenshot3.png, Screenshot4.png, Screenshot5.png) -->
+    <!-- Row with multiple images -->
     <div class="row">
-        <img src="Screenshot3.png" alt="QR Code untuk Compose E-mel">
-        <img src="Screenshot4.png" alt="QR Code untuk Compose E-mel">
-        <img src="Screenshot5.png" alt="QR Code untuk Compose E-mel">
+        <img src="Screenshot3.png" alt="QR Code for Email">
+        <img src="Screenshot4.png" alt="QR Code for Email">
+        <img src="Screenshot5.png" alt="QR Code for Email">
     </div>
 
-<!-- Teks di atas gambar Screenshot2.png -->
-<div style="text-align: center;">
-    <p class="qr-text">If You're Interested ,</p>
-    <p class="qr-text2">You May Email</p>
-    <p class="qr-text3">mutiaraparking@gmail.com.my</p>
-</div>
-
-    <!-- Gambar Screenshot6.png di tengah -->
+    <!-- Text above Screenshot6.png -->
     <div style="text-align: center;">
-        <img src="Screenshot6.png" alt="QR Code untuk Compose E-mel">
+        <p class="qr-text">If You're Interested,</p>
+        <p class="qr-text2">You May Email</p>
+        <p class="qr-text3">mutiaraparking@gmail.com.my</p>
     </div>
 
+    <!-- Screenshot6.png -->
+    <div style="text-align: center;">
+        <img src="Screenshot6.png" alt="QR Code for Email">
+    </div>
 </body>
 </html>

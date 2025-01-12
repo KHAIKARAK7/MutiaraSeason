@@ -82,14 +82,16 @@
 
 /* Font size for the email text, responsive to screen size */
 .qr-text3 {
-    font-size: 30px; /* Font size adjusts based on the viewport width */
-    color: #00d9ff; /* Optional: color for emphasis */
-    font-weight: bold; /* Optional: bold font weight */
+    font-size: clamp(14px, 5vw, 60px); /* Font size adapts to viewport */
+    font-weight: bold; /* Bold font for emphasis */
+    margin-top: 100px; /* Space above the text */
     margin-bottom: 10px; /* Space below the text */
-    max-font-size: 24px; /* Limit the maximum size on larger screens */
-    min-font-size: 14px; /* Ensure font doesn't get too small */
-    margin-top: 100px;
+    background: linear-gradient(90deg, #050b8d, #08e617); /* Dark gradient variation */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    text-align: center; /* Center-align the text */
 }
+
 
 /* Add responsive adjustments for smaller screens (like mobile phones) */
 @media (max-width: 700px) {
@@ -141,7 +143,7 @@
             /* Mengurangkan saiz fon pada peranti mudah alih */
             .qr-text, .qr-text2 {
                 font-size: 30px; /* Mengurangkan saiz fon */
-                margin-bottom: -30px; /* Mengurangkan jarak antara teks */
+                margin-bottom: -10px; /* Mengurangkan jarak antara teks */
             }
 
         }

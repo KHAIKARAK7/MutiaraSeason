@@ -80,23 +80,23 @@
 
 
 
+
+
 /* Font size for the email text, responsive to screen size */
 .qr-text3 {
-    font-size: 6vw; /* Font size adjusts based on the viewport width */
+    font-size: 8vw; /* Start with a smaller font size based on viewport width */
     color: #00d9ff; /* Optional: color for emphasis */
     font-weight: bold; /* Optional: bold font weight */
     margin-bottom: 10px; /* Space below the text */
-    max-font-size: 24px; /* Limit the maximum size on larger screens */
-    min-font-size: 14px; /* Ensure font doesn't get too small */
-    margin-top: 100px;
 }
 
-/* Add responsive adjustments for smaller screens (like mobile phones) */
-@media (max-width: 300px) {
+/* Adjust font size further for smaller screens (like mobile phones) */
+@media (max-width: 480px) {
     .qr-text3 {
-        font-size: 1vw; /* Increase font size on smaller screens */
+        font-size: 10vw; /* Larger font size on very small screens (phones) */
     }
 }
+
 
 
         /* Animasi bawah ke atas */
